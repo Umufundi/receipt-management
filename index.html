@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-newYear">
+    <div class="container">
+        <h1>Receipt Upload</h1>
+        <form id="uploadForm">
+            <div class="form-section">
+                <h2>Document Information</h2>
+                <div class="form-group">
+                    <label for="receiptType">Document Type:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="receiptType" value="receipt" checked>
+                            Receipt
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="receiptType" value="invoice">
+                            Invoice
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="companyName">Company Name:</label>
+                    <input type="text" id="companyName" name="companyName" value="3A Home Care Agency" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeeName">Employee Name:</label>
+                    <input type="text" id="employeeName" name="employeeName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="receiptDate">Receipt Date:</label>
+                    <input type="date" id="receiptDate" name="receiptDate" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Vendor & Amount</h2>
+                <div class="form-group">
+                    <label for="vendorName">Vendor Name:</label>
+                    <input type="text" id="vendorName" name="vendorName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount ($):</label>
+                    <input type="number" id="amount" name="amount" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method:</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">Select payment method...</option>
+                        <option value="bank-5554">Bank Account: X5554</option>
+                        <option value="bank-7331">Bank Account: X7331</option>
+                        <option value="credit">Credit Card</option>
+                        <option value="debit">Debit Card</option>
+                        <option value="cash">Cash</option>
+                        <option value="check">Check</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Business Purpose</h2>
+                <div class="form-group">
+                    <label for="expenseType">Expense Category:</label>
+                    <select id="expenseType" name="expenseType" required>
+                        <option value="">Select an expense category...</option>
+                        <option value="Gas">Gas</option>
+                        <option value="Car Maintenance">Car Maintenance</option>
+                        <option value="Property Maintenance">Property Maintenance</option>
+                        <option value="Day Program Expenses">Day Program Expenses</option>
+                        <option value="custom">Other (specify below)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="customExpenseGroup" style="display: none;">
+                    <label for="customExpense">Custom Expense Category:</label>
+                    <input type="text" id="customExpense" name="customExpense" placeholder="Enter custom expense category">
+                </div>
+
+                <div class="form-group">
+                    <label for="businessPurpose">Business Purpose:</label>
+                    <textarea id="businessPurpose" name="businessPurpose" rows="3" placeholder="Describe the business purpose of this expense" required></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Receipt Image</h2>
+                <div class="form-group">
+                    <div class="image-upload-container">
+                        <label for="receiptImage" class="upload-button">
+                            <i class="fas fa-image"></i>
+                            <span>Select Receipt Image</span>
+                        </label>
+                        <input type="file" id="receiptImage" name="receiptImage" accept="image/*" required>
+                        <div id="previewContainer" class="preview-container" style="display: none;">
+                            <img id="imagePreview" src="#" alt="Receipt Preview">
+                            <button type="button" id="removePreview" class="remove-preview" aria-label="Remove image">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <i class="fas fa-paper-plane"></i>
+                Submit Receipt
+            </button>
+        </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="success-icon">✓</div>
+            <h2>Submission Successful!</h2>
+            <p>Your receipt has been successfully uploaded.</p>
+            <button type="button" class="modal-button">OK</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
