@@ -1,6 +1,6 @@
 // Dropbox Configuration
 window.dropboxConfig = {
-    accessToken: 'sl.CEFMCcM2XBz7FxZif3fhBaTh1XX1ukLlnUtwLY677H1ebKHM6m3VT_LaqpfT5VSjmU6ua2SfUOAj6ucPsCjc4CLMcGQ3AeMF33oY5XasPJks202eZ2YzNC1qYU5OXRnWpE7p3fawmirpTBw ',
+    accessToken: 'sl.CEFMCcM2XBz7FxZif3fhBaTh1XX1ukLlnUtwLY677H1ebKHM6m3VT_LaqpfT5VSjmU6ua2SfUOAj6ucPsCjc4CLMcGQ3AeMF33oY5XasPJks202eZ2YzNC1qYU5OXRnWpE7p3fawmirpTBw',
     lastUpdated: '2025-01-07T11:09:57.574070-05:00',
     expiryHours: 4
 };
