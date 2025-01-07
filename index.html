@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Receipt Management System</h1>
+            <p class="subtitle">Upload and organize your receipts</p>
+        </header>
+
+        <main>
+            <form id="uploadForm" class="upload-form">
+                <div class="form-group">
+                    <label for="receiptImage">Receipt Image</label>
+                    <div class="file-input-container">
+                        <input type="file" id="receiptImage" accept="image/*" required>
+                        <div class="file-input-button">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Choose Image</span>
+                        </div>
+                    </div>
+                    <div id="previewContainer" class="preview-container" style="display: none;">
+                        <img id="imagePreview" src="#" alt="Receipt Preview">
+                        <button type="button" id="removePreview" class="remove-preview">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                        <input type="number" id="amount" step="0.01" min="0" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-calendar"></i>
+                        <input type="date" id="date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="expenseType">Expense Type</label>
+                    <div class="select-with-icon">
+                        <i class="fas fa-tags"></i>
+                        <select id="expenseType" required>
+                            <option value="">Select Type</option>
+                            <option value="travel">Travel</option>
+                            <option value="meals">Meals & Entertainment</option>
+                            <option value="office">Office Supplies</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="software">Software & Subscriptions</option>
+                            <option value="custom">Other (Custom)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="customExpenseGroup" class="form-group" style="display: none;">
+                    <label for="customExpense">Custom Expense Category</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-pen"></i>
+                        <input type="text" id="customExpense" placeholder="Enter custom category">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="businessPurpose">Business Purpose</label>
+                    <div class="input-with-icon textarea">
+                        <i class="fas fa-briefcase"></i>
+                        <textarea id="businessPurpose" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-upload"></i>
+                    Upload Receipt
+                </button>
+            </form>
+        </main>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Success!</h2>
+            <p>Receipt uploaded successfully.</p>
+            <button class="modal-button">OK</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
